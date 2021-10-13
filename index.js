@@ -8,6 +8,11 @@ const Gauge = prometheus.Gauge;
 
 const app = express();
 
+// Last block
+// https://web.getmonero.org/resources/developer-guides/daemon-rpc.html#get_last_block_header
+
+// https://web.getmonero.org/resources/developer-guides/daemon-rpc.html#get_info
+
 const difficulty = new Gauge({
   name: "monerod_block_difficulty",
   help: "Last block difficulty",
