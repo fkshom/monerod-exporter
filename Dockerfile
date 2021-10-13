@@ -1,4 +1,4 @@
-FROM  mhart/alpine-node:latest as build-env
+FROM node:16-alpine3.14 as build-env
 
 ADD package.json /app/package.json
 ADD package-lock.json /app/package-lock.json
