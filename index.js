@@ -2,7 +2,7 @@ const monerojs = require("monero-javascript");
 const express = require("express");
 const prometheus = require("prom-client");
 
-const DAEMON_HOST = process.env.DAEMON_HOST || "http://192.168.1.6:18081";
+const DAEMON_HOST = process.env.DAEMON_HOST || "http://localhost:18089";
 const PORT = process.env.PORT || 18083;
 const Gauge = prometheus.Gauge;
 
@@ -122,6 +122,7 @@ async function main() {
 main();
 
 module.exports = app;
-app.listen(PORT, () =>
-  console.log(`hundehausen/monerod-exporter serving on :${PORT}`)
-);
+app.listen(PORT, () => {
+  console.log(`DAEMON_HOST :${DAEMON_HOST}`);
+  console.log(`Listening on :${PORT}`);
+});
