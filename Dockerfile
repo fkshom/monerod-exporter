@@ -13,6 +13,6 @@ WORKDIR /app
 
 EXPOSE 18083/tcp
 ENV PORT=18083
-ENV DAEMON_HOST=http://your-monerod:18081
+ENV DAEMON_HOST=http://localhost:18089
 
 CMD [ "index.js" ]

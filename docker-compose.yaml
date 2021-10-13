@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  monerod-exporter:
+    container_name: monerod-exporter
+    restart: unless-stopped
+    build:
+      context: .
+    environment:
+      DAEMON_HOST: http://localhost:18089
+    ports:
+      - 18083:18083
+    network_mode: host
