@@ -15,4 +15,5 @@ EXPOSE 18083/tcp
 ENV PORT=18083
 ENV DAEMON_HOST=http://localhost:18081
 
+USER nonroot
 CMD [ "index.js" ]
