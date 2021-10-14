@@ -2,7 +2,9 @@ const monerojs = require("monero-javascript");
 const express = require("express");
 const prometheus = require("prom-client");
 
-const DAEMON_HOST = process.env.DAEMON_HOST || "http://localhost:18089";
+const DAEMON_HOST = process.env.DAEMON_HOST || "http://localhost:18081";
+const DAEMON_USER = process.env.DAEMON_USER || undefined
+const DAEMON_PASS = process.env.DAEMON_PASS || undefined
 const PORT = process.env.PORT || 18083;
 const Gauge = prometheus.Gauge;
 
@@ -83,7 +85,7 @@ async function getMetrics(daemon) {
 }
 
 async function main() {
-  const daemon = await monerojs.connectToDaemonRpc(DAEMON_HOST);
+  const daemon = await monerojs.connectToDaemonRpc(DAEMON_HOST, DAEMON_USER, DAEMON_PASS);
 
   app.get("/metrics", (req, res) => {
     getMetrics(daemon)

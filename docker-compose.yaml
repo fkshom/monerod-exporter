@@ -7,7 +7,9 @@ services:
     build:
       context: .
     environment:
-      DAEMON_HOST: http://localhost:18089
+      DAEMON_HOST: http://localhost:18081
+      DAEMON_USER: null
+      DAEMON_PASS: null
     ports:
       - 18083:18083
     network_mode: host
