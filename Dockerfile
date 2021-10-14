@@ -7,7 +7,7 @@ WORKDIR /app
 
 RUN npm ci --only=production
 
-FROM gcr.io/distroless/nodejs:latest
+FROM node:16-alpine3.14
 COPY --from=build-env /app /app
 WORKDIR /app
 
