@@ -8,8 +8,8 @@ services:
       context: .
     environment:
       DAEMON_HOST: http://localhost:18081
-      DAEMON_USER: null
-      DAEMON_PASS: null
+      DAEMON_USER: monero
+      DAEMON_PASS: monero
     ports:
       - 18083:18083
     network_mode: host

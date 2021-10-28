@@ -1,4 +1,4 @@
-FROM node:16-alpine3.14 as build-env
+FROM node:17.0.1-alpine3.12 as build-env
 
 ADD package.json /app/package.json
 ADD package-lock.json /app/package-lock.json
@@ -7,7 +7,7 @@ WORKDIR /app
 
 RUN npm ci --only=production
 
-FROM gcr.io/distroless/nodejs:latest
+FROM node:17.0.1-alpine3.12
 COPY --from=build-env /app /app
 WORKDIR /app
 
@@ -15,5 +15,5 @@ EXPOSE 18083/tcp
 ENV PORT=18083
 ENV DAEMON_HOST=http://localhost:18081
 
-USER nonroot
+USER node
 CMD [ "index.js" ]
